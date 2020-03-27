@@ -1095,7 +1095,7 @@ local function compile1(ast, scope, parent, opts)
     elseif type(ast) == 'nil' or type(ast) == 'boolean' then
         exprs = handleCompileOpts({expr(tostring(ast), 'literal')}, parent, opts)
     elseif type(ast) == 'number' then
-        local n = ('%.17g'):format(ast)
+        local n = tonumber(ast)
         exprs = handleCompileOpts({expr(n, 'literal')}, parent, opts)
     elseif type(ast) == 'string' then
         local s = serializeString(ast)
